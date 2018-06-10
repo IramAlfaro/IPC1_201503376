@@ -15,7 +15,7 @@ public class NewMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        //TableroVentana i = new TableroVentana();
+       
         VentanaBienvenida vb = new VentanaBienvenida();
         // TODO code application logic here
     }

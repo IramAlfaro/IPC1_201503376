@@ -100,8 +100,10 @@ public class VentanaBienvenida extends JFrame {
         siguiente.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                TableroVentana tv = new TableroVentana(tamTablero.getSelectedIndex()+8, n1.getText(), n2.getText());
-                VentanaOrdenar vo = new VentanaOrdenar(n1.getText(), n2.getText());
+                NombresJugadores nj = new NombresJugadores(n1.getText(),n2.getText(),tamTablero.getSelectedIndex()+8);
+                
+                VentanaOrdenar vo = new VentanaOrdenar(nj);
+                dispose();
             }
         });
         return siguiente;

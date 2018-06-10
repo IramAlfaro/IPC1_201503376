@@ -7,6 +7,8 @@ package proyeto1;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.*;
 
 /**
@@ -20,23 +22,17 @@ public class TableroVentana extends JFrame {
     JLabel cronometro;
     JLabel ju1;
     JLabel ju2;
-    
+    //TimeOut to;
     JPanel panel;
     int tamT;
-    String nombreJ1;
-    String nombreJ2;
+    NombresJugadores nj;
     
     
     
-    public TableroVentana(int tamanio, String nombre1, String nombre2){
-        tamT=tamanio;
-        nombreJ1 = nombre1;
-        nombreJ2 = nombre2;
-        
-        
-        
-    }
-    public TableroVentana(){
+    public TableroVentana( NombresJugadores nj){
+        //to = new TimeOut(nj,);
+        //to.start(0, 1000);
+        this.nj = nj;
         add(getjpanel());
         add(lTiempo());
         add(lCronometro());
@@ -45,6 +41,10 @@ public class TableroVentana extends JFrame {
         
         
         Inicializar();
+          
+    }
+    public TableroVentana(){
+        
     }
     public JLabel lTiempo(){
         tiempo = new JLabel("Tiempo : ");
@@ -55,20 +55,20 @@ public class TableroVentana extends JFrame {
         return tiempo;
     }
     public JLabel lCronometro(){
-        cronometro = new JLabel("00:00");
+        cronometro = new JLabel(nj.getTiempo());
         cronometro.setBounds(860, 30, 120, 70);
         cronometro.setFont(new Font("Arial", Font.BOLD, 20));
         
         return cronometro;
     }
     public JLabel lJugador1(){
-        ju1 = new JLabel("Jugador 1 :  " + nombreJ1);
+        ju1 = new JLabel("Jugador 1 :  " + nj.getNamePlayer1());
         ju1.setBounds(760, 90, 170, 70);
         ju1.setFont(new Font("Ariela", Font.BOLD, 15));
         return ju1;
     }
     public JLabel lJugador2(){
-        ju2 = new JLabel("Jugador 2 :  " + nombreJ2);
+        ju2 = new JLabel("Jugador 2 :  " + nj.getNamePlayer2());
         ju2.setBounds(1050, 90, 170, 70);
         ju2.setFont(new Font("Ariela", Font.BOLD, 15));
         return ju2;
@@ -78,6 +78,7 @@ public class TableroVentana extends JFrame {
    
     //creacion del panel para el tablero
     public JPanel getjpanel(){
+        tamT = nj.getTamTablero();
         
         JPanel panel = new JPanel();
         //int tamT = tamMatriz();
@@ -108,9 +109,10 @@ public class TableroVentana extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         
-        
-        
     }
+    
+    
+    
     
     
 }

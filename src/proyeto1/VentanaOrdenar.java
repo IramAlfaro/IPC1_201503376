@@ -6,6 +6,8 @@
 package proyeto1;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.*;
 
 /**
@@ -13,24 +15,7 @@ import javax.swing.*;
  * @author irams
  */
 public class VentanaOrdenar extends JFrame{
-    String nomJug1;
-    String nomJug2;
-
-    public VentanaOrdenar(String nomJug1, String nomJug2) {
-        this.nomJug1 = nomJug1;
-        this.nomJug2 = nomJug2;
-        add(cBox1());
-        add(cBox2());
-        add(Jugador1());
-        add(Jugador2());
-        add(J1P1());
-        add(J1P2());
-        add(J1P3());
-        add(Agregar1());
-        
-        Inicializar();
-        
-    }
+    
     JLabel nombreJug1;
     JLabel nombreJug2;
     JComboBox seleccionar1;
@@ -44,9 +29,41 @@ public class VentanaOrdenar extends JFrame{
     JButton agregar1;
     JButton agregar2;
     JButton siguiente;
+    JButton jugar;
+    int index1 = 0;
+    int index2 = 0;
+    TimeOut to;
+    NombresJugadores nj;
+    TableroVentana tv ;
+    
+    
+     
+    
+    public VentanaOrdenar(NombresJugadores nj) {
+        
+        this.nj = nj;
+        add(cBox1());
+        add(cBox2());
+        add(Jugador1());
+        add(Jugador2());
+        add(J1P1());
+        add(J1P2());
+        add(J1P3());
+        add(Agregar1());
+        add(J2P1());
+        add(J2P2());
+        add(J2P3());
+        add(Agregar2());
+        add(Jugar());
+        
+        Inicializar();
+        //NombresJugadores nj = new NombresJugadores() ;
+        
+    }
+    
     
     public JLabel Jugador1(){
-        nombreJug1 = new JLabel("Jugador 1 : "+ nomJug1+" Ordene sus personajes");
+        nombreJug1 = new JLabel("Jugador 1 : "+ nj.getNamePlayer1() +" Ordene sus personajes");
         nombreJug1.setBounds(10, 50, 260, 30);
         return nombreJug1;
     }
@@ -69,37 +86,106 @@ public class VentanaOrdenar extends JFrame{
         return jugPer3;
     }
     public JButton Agregar1(){
+        
         agregar1 = new JButton("Agregar");
-        agregar1.setBounds(200, 160, 100, 30);
+        agregar1.setBounds(200, 150, 100, 30);
+        agregar1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                switch (index1){
+                    case 0:
+                        jugPer1.setText((String)seleccionar1.getSelectedItem());
+                        seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
+                        index1++;
+                        break;
+                    case 1:
+                        jugPer2.setText((String)seleccionar1.getSelectedItem());
+                        seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
+                        index1++;
+                        break;
+                    case 2:
+                        jugPer3.setText((String)seleccionar1.getSelectedItem());
+                        seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
+                        index1++;
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "No Existen mas personajes");
+                        
+                }
+            }
+        });
         return agregar1;
     }
     public JLabel J2P1(){
         jugPer11 = new JLabel();
         jugPer11.setBorder(BorderFactory.createLineBorder(Color.black));
-        jugPer11.setBounds(20, 250, 100, 30);
+        jugPer11.setBounds(20, 260, 100, 30);
         return jugPer11;
     }
     public JLabel J2P2(){
         jugPer22 = new JLabel();
         jugPer22.setBorder(BorderFactory.createLineBorder(Color.black));
-        jugPer22.setBounds(20, 290, 100, 30);
+        jugPer22.setBounds(20, 300, 100, 30);
         return jugPer22;
     }
     public JLabel J2P3(){
         jugPer33 = new JLabel();
         jugPer33.setBorder(BorderFactory.createLineBorder(Color.black));
-        jugPer33.setBounds(20, 330, 100, 30);
+        jugPer33.setBounds(20, 340, 100, 30);
         return jugPer33;
     }
     public JButton Agregar2(){
         agregar2 = new JButton("Agregar");
-        agregar2.setBounds(200, 290, 100, 30);
+        agregar2.setBounds(200, 340, 100, 30);
+        agregar2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                switch (index2){
+                    case 0:
+                        jugPer11.setText((String)seleccionar2.getSelectedItem());
+                        seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
+                        index2++;
+                        break;
+                    case 1:
+                        jugPer22.setText((String)seleccionar2.getSelectedItem());
+                        seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
+                        index2++;
+                        break;
+                    case 2:
+                        jugPer33.setText((String)seleccionar2.getSelectedItem());
+                        seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
+                        index2++;
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "No Existen mas personajes");
+                        
+                }
+            }
+        });
         return agregar2;
     }
     public JLabel Jugador2(){
-        nombreJug2 = new JLabel("Jugador 2 : "+ nomJug2+" Ordene sus personajes");
-        nombreJug2.setBounds(10, 210, 260, 30);
+        nombreJug2 = new JLabel("Jugador 2 : "+ nj.getNamePlayer2()+" Ordene sus personajes");
+        nombreJug2.setBounds(10, 220, 260, 30);
         return nombreJug2;
+    }
+    public JButton Jugar(){
+        jugar = new JButton("Jugar");
+        jugar.setBounds(150, 430, 70, 30);
+        jugar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                if(jugPer3.getText()!= "" && jugPer33.getText()!=""){
+                     tv = new TableroVentana(nj);
+                    to = new TimeOut(nj,tv);
+                    to.start(0, 1000);
+                    dispose();
+                }else{
+                    JOptionPane.showMessageDialog(null, "Debe ingresar el orden de todos sus personajes");
+                }
+            }
+        });
+        return jugar;
     }
     public JComboBox cBox1(){
         seleccionar1 = new JComboBox();
