@@ -14,7 +14,7 @@ import java.util.TimerTask;
  */
 public class TimeOut {
     
-    private int minutos = 4;
+    private int minutos = 5;
     private int segundos =0;
     private Timer timer;
     private boolean isTimerRunning;

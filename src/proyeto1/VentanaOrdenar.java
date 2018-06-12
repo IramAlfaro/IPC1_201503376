@@ -96,16 +96,19 @@ public class VentanaOrdenar extends JFrame{
                     case 0:
                         jugPer1.setText((String)seleccionar1.getSelectedItem());
                         seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
+                        nj.idPerJug1[index1] = jugPer1.getText();
                         index1++;
                         break;
                     case 1:
                         jugPer2.setText((String)seleccionar1.getSelectedItem());
                         seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
+                        nj.idPerJug1[index1] = jugPer2.getText();
                         index1++;
                         break;
                     case 2:
                         jugPer3.setText((String)seleccionar1.getSelectedItem());
                         seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
+                        nj.idPerJug1[index1] = jugPer3.getText();
                         index1++;
                         break;
                     default:
@@ -144,16 +147,19 @@ public class VentanaOrdenar extends JFrame{
                     case 0:
                         jugPer11.setText((String)seleccionar2.getSelectedItem());
                         seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
+                        nj.idPerJug2[index2] = jugPer11.getText();
                         index2++;
                         break;
                     case 1:
                         jugPer22.setText((String)seleccionar2.getSelectedItem());
                         seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
+                        nj.idPerJug2[index2] = jugPer22.getText();
                         index2++;
                         break;
                     case 2:
                         jugPer33.setText((String)seleccionar2.getSelectedItem());
                         seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
+                        nj.idPerJug2[index2] = jugPer33.getText();
                         index2++;
                         break;
                     default:
@@ -176,7 +182,9 @@ public class VentanaOrdenar extends JFrame{
             @Override
             public void actionPerformed(ActionEvent ae) {
                 if(jugPer3.getText()!= "" && jugPer33.getText()!=""){
-                     tv = new TableroVentana(nj);
+                    
+                    tv = new TableroVentana(nj);
+                    
                     to = new TimeOut(nj,tv);
                     to.start(0, 1000);
                     dispose();

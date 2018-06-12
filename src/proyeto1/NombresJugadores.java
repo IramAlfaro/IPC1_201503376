@@ -15,6 +15,26 @@ class NombresJugadores {
     private String namePlayer2;
     private int tamTablero;
     private String tiempo;
+    public String[] idPerJug1; 
+    public String[] idPerJug2; 
+
+    public String[] getIdPerJug1() {
+        return idPerJug1;
+    }
+
+    public void setIdPerJug1(String[] idPerJug1) {
+        this.idPerJug1 = idPerJug1;
+    }
+
+    public String[] getIdPerJug2() {
+        return idPerJug2;
+    }
+
+    public void setIdPerJug2(String[] idPerJug2) {
+        this.idPerJug2 = idPerJug2;
+    }
+    
+    
 
     public String getTiempo() {
         return tiempo;
@@ -36,6 +56,8 @@ class NombresJugadores {
         this.namePlayer1 = namePlayer1;
         this.namePlayer2 = namePlayer2;
         this.tamTablero = tamTablero; 
+        idPerJug1 = new String[3];
+        idPerJug2 = new String[3];
     }
 
     public NombresJugadores() {
