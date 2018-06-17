@@ -44,13 +44,9 @@ public class TimeOut {
             if(isTimerRunning){
                 
                 nj.setTiempo(display.PrintTime(minutos, segundos, nj));
-                System.out.println(nj.getTiempo());
+                //System.out.println(nj.getTiempo());
                 tv.cronometro.setText(nj.getTiempo());
                 
-                //tv.PrintTime(minutos, segundos, nj);
-                //tv.cronometro.updateUI();
-                //tv.PrintTime(minutos, segundos, nj);
-                //System.out.println(nj.getTiempo());
             }
             
         }

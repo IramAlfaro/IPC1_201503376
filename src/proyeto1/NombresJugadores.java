@@ -10,29 +10,38 @@ package proyeto1;
  * @author irams
  */
 class NombresJugadores {
+    public int[] posicionesX;
+    public int[] posicionesY;
+    
 
+    
     private String namePlayer1;
     private String namePlayer2;
     private int tamTablero;
     private String tiempo;
-    public String[] idPerJug1; 
-    public String[] idPerJug2; 
+    public boolean[] puedeAtacar;
+    public String[] strPersonajes; 
+    public int[] perOrdenLogico;
+    private int vidasJugador1;
+    private int vidasJugador2;
 
-    public String[] getIdPerJug1() {
-        return idPerJug1;
+    public int getVidasJugador1() {
+        return vidasJugador1;
     }
 
-    public void setIdPerJug1(String[] idPerJug1) {
-        this.idPerJug1 = idPerJug1;
+    public void setVidasJugador1(int vidasJugador1) {
+        this.vidasJugador1 = vidasJugador1;
     }
 
-    public String[] getIdPerJug2() {
-        return idPerJug2;
+    public int getVidasJugador2() {
+        return vidasJugador2;
     }
 
-    public void setIdPerJug2(String[] idPerJug2) {
-        this.idPerJug2 = idPerJug2;
+    public void setVidasJugador2(int vidasJugador2) {
+        this.vidasJugador2 = vidasJugador2;
     }
+
+   
     
     
 
@@ -53,11 +62,19 @@ class NombresJugadores {
     }
 
     public NombresJugadores(String namePlayer1, String namePlayer2, int tamTablero) {
+        posicionesX = new int[6];
+        posicionesY = new int[6];
+        puedeAtacar = new boolean[6];
+        for(int i = 0 ; i<6;i++){
+            puedeAtacar[i]=true;
+        }
+        vidasJugador1 = 5;
+        vidasJugador2 = 5;
         this.namePlayer1 = namePlayer1;
         this.namePlayer2 = namePlayer2;
         this.tamTablero = tamTablero; 
-        idPerJug1 = new String[3];
-        idPerJug2 = new String[3];
+        strPersonajes = new String[6];
+        perOrdenLogico = new int[6];
     }
 
     public NombresJugadores() {

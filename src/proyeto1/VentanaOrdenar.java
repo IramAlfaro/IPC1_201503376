@@ -42,6 +42,7 @@ public class VentanaOrdenar extends JFrame{
     public VentanaOrdenar(NombresJugadores nj) {
         
         this.nj = nj;
+        
         add(cBox1());
         add(cBox2());
         add(Jugador1());
@@ -55,6 +56,7 @@ public class VentanaOrdenar extends JFrame{
         add(J2P3());
         add(Agregar2());
         add(Jugar());
+        
         
         Inicializar();
         //NombresJugadores nj = new NombresJugadores() ;
@@ -92,24 +94,72 @@ public class VentanaOrdenar extends JFrame{
         agregar1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
+                
                 switch (index1){
                     case 0:
-                        jugPer1.setText((String)seleccionar1.getSelectedItem());
-                        seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
-                        nj.idPerJug1[index1] = jugPer1.getText();
+                        if(seleccionar1.getSelectedItem() == "Caballero"){
+                            jugPer1.setText((String)seleccionar1.getSelectedItem());
+                            seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
+                            nj.strPersonajes[0] = jugPer1.getText();
+                            nj.perOrdenLogico[0] = 1;
+                            
+                        }else if(seleccionar1.getSelectedItem() == "Mago"){
+                            jugPer1.setText((String)seleccionar1.getSelectedItem());
+                            seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
+                            nj.strPersonajes[0] = jugPer1.getText();
+                            nj.perOrdenLogico[0] = 2;
+                            
+                        }else if(seleccionar1.getSelectedItem() == "Princesa"){
+                            jugPer1.setText((String)seleccionar1.getSelectedItem());
+                            seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
+                            nj.strPersonajes[0] = jugPer1.getText();
+                            nj.perOrdenLogico[0] = 3;
+                            
+                        }
                         index1++;
                         break;
                     case 1:
-                        jugPer2.setText((String)seleccionar1.getSelectedItem());
-                        seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
-                        nj.idPerJug1[index1] = jugPer2.getText();
-                        index1++;
+                        if(seleccionar1.getSelectedItem() == "Caballero"){
+                            jugPer2.setText((String)seleccionar1.getSelectedItem());
+                            seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
+                            nj.strPersonajes[2] = jugPer2.getText();
+                            nj.perOrdenLogico[2] = 1;
+                            index1++;
+                        }else if(seleccionar1.getSelectedItem() == "Mago"){
+                            jugPer2.setText((String)seleccionar1.getSelectedItem());
+                            seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
+                            nj.strPersonajes[2] = jugPer2.getText();
+                            nj.perOrdenLogico[2] = 2;
+                            index1++;
+                        }else if(seleccionar1.getSelectedItem() == "Princesa"){
+                            jugPer2.setText((String)seleccionar1.getSelectedItem());
+                            seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
+                            nj.strPersonajes[2] = jugPer2.getText();
+                            nj.perOrdenLogico[2] = 3;
+                            index1++;
+                        }
                         break;
                     case 2:
-                        jugPer3.setText((String)seleccionar1.getSelectedItem());
-                        seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
-                        nj.idPerJug1[index1] = jugPer3.getText();
-                        index1++;
+                        if(seleccionar1.getSelectedItem() == "Caballero"){
+                            jugPer3.setText((String)seleccionar1.getSelectedItem());
+                            seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
+                            nj.strPersonajes[4] = jugPer3.getText();
+                            nj.perOrdenLogico[4] = 1;
+                            index1++;
+                        }else if(seleccionar1.getSelectedItem() == "Mago"){
+                            jugPer3.setText((String)seleccionar1.getSelectedItem());
+                            seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
+                            nj.strPersonajes[4] = jugPer3.getText();
+                            nj.perOrdenLogico[4] = 2;
+                            index1++;
+                        }else if(seleccionar1.getSelectedItem() == "Princesa"){
+                            jugPer3.setText((String)seleccionar1.getSelectedItem());
+                            seleccionar1.removeItemAt(seleccionar1.getSelectedIndex());
+                            nj.strPersonajes[4] = jugPer3.getText();
+                            nj.perOrdenLogico[4] = 3;
+                            index1++;
+                        }
+
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "No Existen mas personajes");
@@ -143,24 +193,70 @@ public class VentanaOrdenar extends JFrame{
         agregar2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
-                switch (index2){
-                    case 0:
-                        jugPer11.setText((String)seleccionar2.getSelectedItem());
-                        seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
-                        nj.idPerJug2[index2] = jugPer11.getText();
-                        index2++;
+                switch (index1){
+                    case 3:
+                        if(seleccionar2.getSelectedItem() == "Caballero"){
+                            jugPer11.setText((String)seleccionar2.getSelectedItem());
+                            seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
+                            nj.strPersonajes[1] = jugPer11.getText();
+                            nj.perOrdenLogico[1] = 4;
+                            index1++;
+                        }else if(seleccionar2.getSelectedItem() == "Mago"){
+                            jugPer11.setText((String)seleccionar2.getSelectedItem());
+                            seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
+                            nj.strPersonajes[1] = jugPer11.getText();
+                            nj.perOrdenLogico[1] = 5;
+                            index1++;
+                        }else if(seleccionar2.getSelectedItem() == "Princesa"){
+                            jugPer11.setText((String)seleccionar2.getSelectedItem());
+                            seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
+                            nj.strPersonajes[1] = jugPer11.getText();
+                            nj.perOrdenLogico[1] = 6;
+                            index1++;
+                        }
                         break;
-                    case 1:
-                        jugPer22.setText((String)seleccionar2.getSelectedItem());
-                        seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
-                        nj.idPerJug2[index2] = jugPer22.getText();
-                        index2++;
+                    case 4:
+                        if(seleccionar2.getSelectedItem() == "Caballero"){
+                            jugPer22.setText((String)seleccionar2.getSelectedItem());
+                            seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
+                            nj.strPersonajes[3] = jugPer22.getText();
+                            nj.perOrdenLogico[3] = 4;
+                            index1++;
+                        }else if(seleccionar2.getSelectedItem() == "Mago"){
+                            jugPer22.setText((String)seleccionar2.getSelectedItem());
+                            seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
+                            nj.strPersonajes[3] = jugPer22.getText();
+                            nj.perOrdenLogico[3] = 5;
+                            index1++;
+                        }else if(seleccionar2.getSelectedItem() == "Princesa"){
+                            jugPer22.setText((String)seleccionar2.getSelectedItem());
+                            seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
+                            nj.strPersonajes[3] = jugPer22.getText();
+                            nj.perOrdenLogico[3] = 6;
+                            index1++;
+                        }
                         break;
-                    case 2:
-                        jugPer33.setText((String)seleccionar2.getSelectedItem());
-                        seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
-                        nj.idPerJug2[index2] = jugPer33.getText();
-                        index2++;
+                    case 5:
+                        if(seleccionar2.getSelectedItem() == "Caballero"){
+                            jugPer33.setText((String)seleccionar2.getSelectedItem());
+                            seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
+                            nj.strPersonajes[5] = jugPer33.getText();
+                            nj.perOrdenLogico[5] = 4;
+                            index1++;
+                        }else if(seleccionar2.getSelectedItem() == "Mago"){
+                            jugPer33.setText((String)seleccionar2.getSelectedItem());
+                            seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
+                            nj.strPersonajes[5] = jugPer33.getText();
+                            nj.perOrdenLogico[5] = 5;
+                            index1++;
+                        }else if(seleccionar2.getSelectedItem() == "Princesa"){
+                            jugPer33.setText((String)seleccionar2.getSelectedItem());
+                            seleccionar2.removeItemAt(seleccionar2.getSelectedIndex());
+                            nj.strPersonajes[5] = jugPer33.getText();
+                            //System.out.println(nj.strPersonajes[5]);
+                            nj.perOrdenLogico[5] = 6;
+                            index1++;
+                        }
                         break;
                     default:
                         JOptionPane.showMessageDialog(null, "No Existen mas personajes");
