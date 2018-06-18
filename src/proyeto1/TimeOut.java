@@ -66,8 +66,11 @@ public class TimeOut {
                         mp.setVisible(true);
                         System.out.println("ño");
                 }
-                JOptionPane.showMessageDialog(null, "El ganador es");
-                
+                if(nj.getVidasJugador1()>0){
+                    JOptionPane.showMessageDialog(null, "El ganador es :" + nj.getNamePlayer1());
+                }else{
+                     JOptionPane.showMessageDialog(null, "El ganador es :" + nj.getNamePlayer2());
+                }
             }
             if(segundos <60){
                 segundos++;
@@ -100,6 +103,15 @@ public class TimeOut {
                         MenuPrincipal mp = new MenuPrincipal();
                         mp.setVisible(true);
                         System.out.println("ño");
+                    }
+                    if(nj.getVidasJugador1()>nj.getVidasJugador2()){
+                    JOptionPane.showMessageDialog(null, "El ganador es :" + nj.getNamePlayer1());
+                }
+                    if(nj.getVidasJugador1()<nj.getVidasJugador2()){
+                     JOptionPane.showMessageDialog(null, "El ganador es :" + nj.getNamePlayer2());
+                }
+                    if(nj.getVidasJugador1()==nj.getVidasJugador2()){
+                        JOptionPane.showMessageDialog(null, "El Partida termino en Empate");
                     }
                 }
                     
