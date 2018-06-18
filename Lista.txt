@@ -1,0 +1,3 @@
+Iram,Alfaro,0.0,Caballero/Mago/Princesa,Caballero/Mago/Princesa,5,3,Iram
+Luis,Roberto,0.0,Caballero/Mago/Princesa,Caballero/Mago/Princesa,3,4,Roberto
+Alex,Jessy,1.0,Mago/Caballero/Princesa,Caballero/Mago/Princesa,5,5,Jessy

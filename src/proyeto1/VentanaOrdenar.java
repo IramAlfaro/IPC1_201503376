@@ -17,6 +17,7 @@ import javax.swing.*;
 public class VentanaOrdenar extends JFrame{
     
     JLabel nombreJug1;
+    JLabel ltiempo;
     JLabel nombreJug2;
     JComboBox seleccionar1;
     JComboBox seleccionar2;
@@ -30,6 +31,7 @@ public class VentanaOrdenar extends JFrame{
     JButton agregar2;
     JButton siguiente;
     JButton jugar;
+    JSpinner tiempo;
     int index1 = 0;
     int index2 = 0;
     TimeOut to;
@@ -44,6 +46,8 @@ public class VentanaOrdenar extends JFrame{
         this.nj = nj;
         
         add(cBox1());
+        add(tiempo());
+        add(LT());
         add(cBox2());
         add(Jugador1());
         add(Jugador2());
@@ -271,9 +275,20 @@ public class VentanaOrdenar extends JFrame{
         nombreJug2.setBounds(10, 220, 260, 30);
         return nombreJug2;
     }
+    public JLabel LT(){
+        ltiempo =new JLabel("Tiempo");
+        ltiempo.setBounds(100, 420, 60, 40);
+        return ltiempo;
+    }
+    public JSpinner tiempo(){
+        tiempo = new JSpinner();
+        tiempo.setBounds(180, 420, 70, 40);
+        
+        return tiempo;
+    }
     public JButton Jugar(){
         jugar = new JButton("Jugar");
-        jugar.setBounds(150, 430, 70, 30);
+        jugar.setBounds(150, 480, 70, 30);
         jugar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent ae) {
@@ -284,6 +299,8 @@ public class VentanaOrdenar extends JFrame{
                     to = new TimeOut(nj,tv);
                     to.start(0, 1000);
                     dispose();
+                    String minutos = tiempo.getValue().toString();
+                    nj.setMin(Integer.parseInt(minutos));
                 }else{
                     JOptionPane.showMessageDialog(null, "Debe ingresar el orden de todos sus personajes");
                 }
@@ -310,7 +327,7 @@ public class VentanaOrdenar extends JFrame{
     }
     public void Inicializar(){
         setLayout(null);
-        setSize(400, 550);
+        setSize(400, 600);
         setVisible(true);
         setLocationRelativeTo(null);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

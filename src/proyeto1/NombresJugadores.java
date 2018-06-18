@@ -14,7 +14,15 @@ class NombresJugadores {
     public int[] posicionesY;
     
 
-    
+    private int min;
+
+    public int getMin() {
+        return min;
+    }
+
+    public void setMin(int min) {
+        this.min = min;
+    }
     private String namePlayer1;
     private String namePlayer2;
     private int tamTablero;
