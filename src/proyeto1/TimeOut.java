@@ -66,6 +66,8 @@ public class TimeOut {
                         mp.setVisible(true);
                         System.out.println("ño");
                 }
+                JOptionPane.showMessageDialog(null, "El ganador es");
+                
             }
             if(segundos <60){
                 segundos++;
